@@ -4,7 +4,7 @@ import { loadStripe, Stripe } from '@stripe/stripe-js';
 export function useStripe() {
   const [stripe, setStripe] = useState<Stripe | null>(null);
 
-  async function createPaymentStipeCheckout(checkoutData: any) {
+  async function createPaymentStipeCheckout(checkoutData: { testeId: string }) {
     if (!stripe) {
       return;
     }
@@ -26,7 +26,9 @@ export function useStripe() {
     }
   }
 
-  async function createSubscriptionStripeCheckout(checkoutData: any) {
+  async function createSubscriptionStripeCheckout(checkoutData: {
+    testeId: string;
+  }) {
     if (!stripe) {
       return;
     }
