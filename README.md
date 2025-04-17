@@ -47,16 +47,19 @@ npm run dev
 Para testar eventos do Stripe localmente, siga os passos:
 
 1. Instale a CLI do Stripe:
+
 ```bash
 npm install -g stripe
 ```
 
 2. Faça login na sua conta Stripe:
+
 ```bash
 stripe login
 ```
 
 3. Execute o comando para ouvir eventos e encaminhá-los para seu servidor local:
+
 ```bash
 stripe listen --forward-to localhost:3000/api/stripe/webhook
 ```
@@ -75,6 +78,34 @@ stripe listen --forward-to localhost:3000/api/stripe/webhook
   - Assinaturas criadas/canceladas
   - Pagamentos por boleto
   - Expiração de sessões
+
+## 🔧 Scripts de Desenvolvimento
+
+```bash
+# Iniciar servidor de desenvolvimento
+npm run dev
+
+# Construir para produção
+npm run build
+
+# Iniciar servidor de produção
+npm run start
+
+# Verificar e corrigir problemas de linting
+npm run lint
+
+# Apenas verificar problemas de linting
+npm run lint:check
+
+# Formatar código com Prettier
+npm run format
+
+# Verificar formatação
+npm run format:check
+
+# Corrigir problemas de linting e formatação
+npm run fix
+```
 
 ## 📝 Estrutura do Projeto
 

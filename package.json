@@ -6,7 +6,11 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint --fix",
+    "lint:check": "next lint",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "fix": "npm run format && npm run lint"
   },
   "dependencies": {
     "@auth/firebase-adapter": "^2.8.0",
@@ -27,6 +31,9 @@
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "15.3.0",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-plugin-prettier": "^5.0.0",
+    "prettier": "^3.0.0",
     "tailwindcss": "^4",
     "typescript": "^5"
   }

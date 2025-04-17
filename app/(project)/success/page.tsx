@@ -21,7 +21,7 @@ export default function Success() {
           <motion.path
             initial={{ pathLength: 0 }}
             animate={{ pathLength: 1 }}
-            transition={{ duration: 0.8, ease: "easeInOut" }}
+            transition={{ duration: 0.8, ease: 'easeInOut' }}
             strokeLinecap="round"
             strokeLinejoin="round"
             strokeWidth={2}
@@ -36,15 +36,22 @@ export default function Success() {
         transition={{ delay: 0.5 }}
         className="text-center"
       >
-        <h1 className="text-4xl font-bold text-gray-800 mb-4">Pagamento Confirmado!</h1>
+        <h1 className="text-4xl font-bold text-gray-800 mb-4">
+          Pagamento Confirmado!
+        </h1>
         <p className="text-lg text-gray-600 mb-8">
           Obrigado pela sua compra. Seu pagamento foi processado com sucesso.
         </p>
 
         <div className="bg-white p-6 rounded-lg shadow-md mb-8">
-          <h2 className="text-xl font-semibold text-gray-700 mb-4">Detalhes da Transação</h2>
+          <h2 className="text-xl font-semibold text-gray-700 mb-4">
+            Detalhes da Transação
+          </h2>
           <div className="space-y-2 text-gray-600">
-            <p>Status: <span className="text-green-500 font-medium">Aprovado</span></p>
+            <p>
+              Status:{' '}
+              <span className="text-green-500 font-medium">Aprovado</span>
+            </p>
             <p>Data: {new Date().toLocaleDateString('pt-BR')}</p>
           </div>
         </div>

@@ -1,13 +1,13 @@
-import { handleAuth } from "@/actions/handle-auth";
-import { auth } from "@/lib/auth";
-import Link from "next/link";
-import { redirect } from "next/navigation";
+import { handleAuth } from '@/actions/handle-auth';
+import { auth } from '@/lib/auth';
+import Link from 'next/link';
+import { redirect } from 'next/navigation';
 
 export default async function Dashboard() {
   const session = await auth();
-  
+
   if (!session) {
-    redirect("/login");
+    redirect('/login');
   }
 
   return (
@@ -18,7 +18,8 @@ export default async function Dashboard() {
       {session?.user?.email && (
         <button
           onClick={handleAuth}
-          className="mt-4 border rounded-md p-2 cursor-pointer bg-red-500 text-white hover:bg-red-600 transition-colors duration-300 ease-in-out focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-50">
+          className="mt-4 border rounded-md p-2 cursor-pointer bg-red-500 text-white hover:bg-red-600 transition-colors duration-300 ease-in-out focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-50"
+        >
           Logout
         </button>
       )}

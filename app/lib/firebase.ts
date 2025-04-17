@@ -1,14 +1,17 @@
-import "server-only";
+import 'server-only';
 
-import { cert, getApps, initializeApp } from "firebase-admin/app";
-import { getFirestore } from "firebase-admin/firestore";
+import { cert, getApps, initializeApp } from 'firebase-admin/app';
+import { getFirestore } from 'firebase-admin/firestore';
 // import { getStorage } from "firebase-admin/storage";
 
 if (!process.env.FIREBASE_PRIVATE_KEY_BASE64) {
-  throw new Error("FIREBASE_PRIVATE_KEY_BASE64 is not defined");
+  throw new Error('FIREBASE_PRIVATE_KEY_BASE64 is not defined');
 }
 
-const decoderKey = Buffer.from(process.env.FIREBASE_PRIVATE_KEY_BASE64, "base64").toString("utf-8");
+const decoderKey = Buffer.from(
+  process.env.FIREBASE_PRIVATE_KEY_BASE64,
+  'base64'
+).toString('utf-8');
 
 export const firebaseCert = cert({
   projectId: process.env.FIREBASE_PROJECT_ID,
@@ -16,11 +19,11 @@ export const firebaseCert = cert({
   privateKey: decoderKey,
 });
 
-if(!getApps().length) {
+if (!getApps().length) {
   initializeApp({
     credential: firebaseCert,
     // storageBucket: process.env.FIREBASE_STORAGE_BUCKET,
-  })
+  });
 }
 
 export const db = getFirestore();
