@@ -13,6 +13,7 @@ export async function POST(request: NextRequest) {
         external_reference: testeId, // ID do pedido no seu sistema [recomendado] score
         metadata: {
           testeId, // Essa variável é convertida para snake_case -> teste_id
+          userEmail, // Essa variável é convertida para snake_case -> user_email
         },
         ...(userEmail && { payer: { email: userEmail } }),
         items: [
