@@ -1,36 +1,92 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Micro SaaS - Plataforma de Pagamentos
 
-## Getting Started
+Uma plataforma moderna de micro SaaS construída com Next.js, Firebase e integração com Stripe para processamento de pagamentos.
 
-First, run the development server:
+## 🚀 Tecnologias
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+- [Next.js](https://nextjs.org/)
+- [Firebase](https://firebase.google.com/)
+- [Stripe](https://stripe.com/)
+- TypeScript
+
+## 💻 Pré-requisitos
+
+- Node.js
+- Conta no Stripe
+- Projeto Firebase
+
+## 🔧 Configuração
+
+### Variáveis de Ambiente
+
+Crie um arquivo `.env.local` na raiz do projeto com as seguintes variáveis:
+
+```env
+STRIPE_SECRET_KEY=
+STRIPE_WEBHOOK_SECRET=
+STRIPE_PRODUCT_PRICE_ID=
+STRIPE_SUBSCRIPTION_PRICE_ID=
+
+FIREBASE_API_KEY=
+FIREBASE_AUTH_DOMAIN=
+FIREBASE_PROJECT_ID=
+FIREBASE_STORAGE_BUCKET=
+FIREBASE_MESSAGING_SENDER_ID=
+FIREBASE_APP_ID=
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Instalação
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+npm install
+npm run dev
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 🔌 Configuração do Webhook Stripe
 
-## Learn More
+Para testar eventos do Stripe localmente, siga os passos:
 
-To learn more about Next.js, take a look at the following resources:
+1. Instale a CLI do Stripe:
+```bash
+npm install -g stripe
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+2. Faça login na sua conta Stripe:
+```bash
+stripe login
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+3. Execute o comando para ouvir eventos e encaminhá-los para seu servidor local:
+```bash
+stripe listen --forward-to localhost:3000/api/stripe/webhook
+```
 
-## Deploy on Vercel
+> ⚠️ **Importante**: Mantenha este comando rodando em um terminal separado enquanto estiver testando os webhooks.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+4. Copie o webhook signing secret fornecido e adicione à sua variável de ambiente `STRIPE_WEBHOOK_SECRET`.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 🛠️ Funcionalidades
+
+- Autenticação de usuários
+- Processamento de pagamentos únicos
+- Sistema de assinaturas
+- Webhooks para eventos do Stripe:
+  - Pagamentos bem-sucedidos
+  - Assinaturas criadas/canceladas
+  - Pagamentos por boleto
+  - Expiração de sessões
+
+## 📝 Estrutura do Projeto
+
+```
+/app
+  /api          # Rotas da API
+  /components   # Componentes React
+  /hooks        # Custom hooks
+  /lib          # Configurações (Firebase, Stripe)
+  /server       # Lógica do servidor
+```
+
+## 🤝 Contribuindo
+
+Contribuições são bem-vindas! Sinta-se à vontade para abrir uma issue ou enviar um pull request.
