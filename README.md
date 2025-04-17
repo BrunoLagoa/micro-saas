@@ -7,7 +7,7 @@ Uma plataforma moderna de micro SaaS construída com Next.js, Firebase e integra
 - [Next.js](https://nextjs.org/)
 - [Firebase](https://firebase.google.com/)
 - [Stripe](https://stripe.com/)
-- TypeScript
+- [TypeScript](https://www.typescriptlang.org/)
 
 ## 💻 Pré-requisitos
 
