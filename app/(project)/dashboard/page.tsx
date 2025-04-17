@@ -11,21 +11,21 @@ export default async function Dashboard() {
   }
 
   return (
-    <div className="flex flex-col items-center justify-center h-screen">
-      <h1 className="text-4xl font-bold mb-10">Dashboard</h1>
+    <div className="flex h-screen flex-col items-center justify-center">
+      <h1 className="mb-10 text-4xl font-bold">Dashboard</h1>
       <p>Email do usuário: {session?.user?.email}</p>
 
       {session?.user?.email && (
         <button
           onClick={handleAuth}
-          className="mt-4 border rounded-md p-2 cursor-pointer bg-red-500 text-white hover:bg-red-600 transition-colors duration-300 ease-in-out focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-50"
+          className="mt-4 cursor-pointer rounded-md border bg-red-500 p-2 text-white transition-colors duration-300 ease-in-out hover:bg-red-600 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-50"
         >
           Logout
         </button>
       )}
 
       <Link href="/pagamentos" className="mt-4">
-        <button className="border rounded-md p-2 cursor-pointer bg-blue-500 text-white hover:bg-blue-600 transition-colors duration-300 ease-in-out focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-50">
+        <button className="cursor-pointer rounded-md border bg-blue-500 p-2 text-white transition-colors duration-300 ease-in-out hover:bg-blue-600 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-50">
           Pagamentos
         </button>
       </Link>

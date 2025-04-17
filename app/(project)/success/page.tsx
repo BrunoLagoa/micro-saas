@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 
 export default function Success() {
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-b from-green-50 to-white p-4">
+    <div className="flex min-h-screen flex-col items-center justify-center bg-gradient-to-b from-green-50 to-white p-4">
       <motion.div
         initial={{ scale: 0 }}
         animate={{ scale: 1 }}
@@ -13,7 +13,7 @@ export default function Success() {
         className="mb-8 text-green-500"
       >
         <svg
-          className="w-24 h-24"
+          className="h-24 w-24"
           fill="none"
           viewBox="0 0 24 24"
           stroke="currentColor"
@@ -36,28 +36,28 @@ export default function Success() {
         transition={{ delay: 0.5 }}
         className="text-center"
       >
-        <h1 className="text-4xl font-bold text-gray-800 mb-4">
+        <h1 className="mb-4 text-4xl font-bold text-gray-800">
           Pagamento Confirmado!
         </h1>
-        <p className="text-lg text-gray-600 mb-8">
+        <p className="mb-8 text-lg text-gray-600">
           Obrigado pela sua compra. Seu pagamento foi processado com sucesso.
         </p>
 
-        <div className="bg-white p-6 rounded-lg shadow-md mb-8">
-          <h2 className="text-xl font-semibold text-gray-700 mb-4">
+        <div className="mb-8 rounded-lg bg-white p-6 shadow-md">
+          <h2 className="mb-4 text-xl font-semibold text-gray-700">
             Detalhes da Transação
           </h2>
           <div className="space-y-2 text-gray-600">
             <p>
               Status:{' '}
-              <span className="text-green-500 font-medium">Aprovado</span>
+              <span className="font-medium text-green-500">Aprovado</span>
             </p>
             <p>Data: {new Date().toLocaleDateString('pt-BR')}</p>
           </div>
         </div>
 
         <Link href="/dashboard">
-          <button className="bg-blue-500 text-white px-6 py-3 rounded-lg font-medium hover:bg-blue-600 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50">
+          <button className="rounded-lg bg-blue-500 px-6 py-3 font-medium text-white transition-colors duration-300 hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50">
             Voltar ao Dashboard
           </button>
         </Link>
