@@ -4,6 +4,7 @@ import { handleStripePayment } from '@/server/stripe/handle-payment';
 import { handleStripeSubscription } from '@/server/stripe/handle-subscription';
 import { headers } from 'next/headers';
 import { NextRequest, NextResponse } from 'next/server';
+import Stripe from 'stripe';
 
 const secret = process.env.STRIPE_WEBHOOK_SECRET;
 
@@ -56,7 +57,9 @@ export async function POST(request: NextRequest) {
         );
         break;
       case 'customer.subscription.deleted': // Assinatura cancelada
-        await handleStripeCancelSubscription(event);
+        await handleStripeCancelSubscription(
+          event as unknown as Stripe.CheckoutSessionCompletedEvent
+        );
         break;
       default:
         console.log(`Unhandled event type: ${event.type}`);
