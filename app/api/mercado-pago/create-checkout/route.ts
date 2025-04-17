@@ -47,9 +47,9 @@ export async function POST(request: NextRequest) {
         },
         auto_return: 'approved',
         back_urls: {
-          success: `${request.nextUrl.origin}/mercado-pago/pending`,
-          failure: `${request.nextUrl.origin}/mercado-pago/pending`,
-          pending: `${request.nextUrl.origin}/mercado-pago/pending`,
+          success: `${request.nextUrl.origin}/api/mercado-pago/pending`,
+          failure: `${request.nextUrl.origin}/api/mercado-pago/pending`,
+          pending: `${request.nextUrl.origin}/api/mercado-pago/pending`,
         },
       },
     });
