@@ -1,16 +1,23 @@
+'use client';
+
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 
 export default function Menu() {
+  const pathname = usePathname();
+
+  const isActive = (path: string) => pathname === path;
+
+  const getLinkClassName = (path: string) =>
+    `flex items-center rounded-lg p-3 ${isActive(path) ? 'bg-blue-50 text-blue-700' : 'text-gray-600 hover:bg-gray-50'}`;
+
   return (
     <div className="hidden w-64 flex-shrink-0 bg-white p-4 shadow-lg md:block">
       <div className="mb-8">
         <h2 className="text-xl font-bold text-gray-800">Menu</h2>
       </div>
       <nav className="space-y-2">
-        <Link
-          href="/dashboard"
-          className="flex items-center rounded-lg bg-blue-50 p-3 text-blue-700"
-        >
+        <Link href="/dashboard" className={getLinkClassName('/dashboard')}>
           <svg
             className="mr-3 h-6 w-6"
             fill="none"
@@ -38,10 +45,7 @@ export default function Menu() {
           </svg>
           Dashboard
         </Link>
-        <Link
-          href="/pagamentos"
-          className="flex items-center rounded-lg p-3 text-gray-600 hover:bg-gray-50"
-        >
+        <Link href="/pagamentos" className={getLinkClassName('/pagamentos')}>
           <svg
             className="mr-3 h-6 w-6"
             fill="none"
