@@ -1,16 +1,19 @@
 'use client';
 
+import { SecurityBanner } from '@/components/security-banner';
+import { Statistics } from '@/components/statistics';
 import { motion } from 'framer-motion';
+import Link from 'next/link';
 
 export const DashboardContent = () => {
   return (
-    <main className="p-6">
+    <main className="bg-gray-50 p-6">
       <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
         {/* Card de Vendas */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="rounded-lg bg-white p-6 shadow-sm"
+          className="rounded-xl bg-white p-6 shadow-lg transition-shadow hover:shadow-xl"
         >
           <div className="flex items-center justify-between">
             <h3 className="text-lg font-semibold text-gray-800">
@@ -24,47 +27,116 @@ export const DashboardContent = () => {
           <p className="mt-1 text-sm text-gray-500">
             Comparado ao mês anterior
           </p>
+          <div className="mt-4 h-1 w-full overflow-hidden rounded-full bg-gray-200">
+            <div className="h-1 w-[75%] bg-green-500"></div>
+          </div>
         </motion.div>
 
-        {/* Card de Atividades */}
+        {/* Card de Clientes */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.1 }}
-          className="rounded-lg bg-white p-6 shadow-sm"
+          className="rounded-xl bg-white p-6 shadow-lg transition-shadow hover:shadow-xl"
         >
-          <h3 className="text-lg font-semibold text-gray-800">
+          <div className="flex items-center justify-between">
+            <h3 className="text-lg font-semibold text-gray-800">
+              Novos Clientes
+            </h3>
+            <span className="rounded-full bg-blue-100 px-3 py-1 text-sm text-blue-800">
+              +8%
+            </span>
+          </div>
+          <p className="mt-2 text-3xl font-bold text-gray-900">245</p>
+          <p className="mt-1 text-sm text-gray-500">Últimos 30 dias</p>
+          <div className="mt-4 h-1 w-full overflow-hidden rounded-full bg-gray-200">
+            <div className="h-1 w-[65%] bg-blue-500"></div>
+          </div>
+        </motion.div>
+
+        {/* Card de Taxa de Conversão */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.2 }}
+          className="rounded-xl bg-white p-6 shadow-lg transition-shadow hover:shadow-xl"
+        >
+          <div className="flex items-center justify-between">
+            <h3 className="text-lg font-semibold text-gray-800">
+              Taxa de Conversão
+            </h3>
+            <span className="rounded-full bg-purple-100 px-3 py-1 text-sm text-purple-800">
+              +5%
+            </span>
+          </div>
+          <p className="mt-2 text-3xl font-bold text-gray-900">2.4%</p>
+          <p className="mt-1 text-sm text-gray-500">Meta: 3%</p>
+          <div className="mt-4 h-1 w-full overflow-hidden rounded-full bg-gray-200">
+            <div className="h-1 w-[45%] bg-purple-500"></div>
+          </div>
+        </motion.div>
+
+        {/* Card de Transações Recentes */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.3 }}
+          className="rounded-xl bg-white p-6 shadow-lg transition-shadow hover:shadow-xl md:col-span-2"
+        >
+          <h3 className="mb-4 text-lg font-semibold text-gray-800">
             Transações Recentes
           </h3>
-          <div className="mt-4 space-y-3">
-            <div className="flex items-center justify-between">
-              <div className="flex items-center">
-                <div className="flex h-8 w-8 items-center justify-center rounded-full bg-blue-100">
-                  <svg
-                    className="h-4 w-4 text-blue-600"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M12 6v6m0 0v6m0-6h6m-6 0H6"
-                    />
-                  </svg>
+          <div className="space-y-4">
+            {[
+              {
+                id: 1,
+                name: 'João Silva',
+                amount: 450,
+                time: '2h atrás',
+                type: 'Novo Plano',
+              },
+              {
+                id: 2,
+                name: 'Maria Santos',
+                amount: 850,
+                time: '4h atrás',
+                type: 'Upgrade',
+              },
+              {
+                id: 3,
+                name: 'Pedro Costa',
+                amount: 250,
+                time: '6h atrás',
+                type: 'Renovação',
+              },
+            ].map((transaction) => (
+              <div
+                key={transaction.id}
+                className="flex items-center justify-between rounded-lg bg-gray-50 p-4"
+              >
+                <div className="flex items-center space-x-4">
+                  <div className="flex-shrink-0">
+                    <div className="flex h-10 w-10 items-center justify-center rounded-full bg-blue-100">
+                      <span className="font-semibold text-blue-600">
+                        {transaction.name[0]}
+                      </span>
+                    </div>
+                  </div>
+                  <div>
+                    <p className="text-sm font-medium text-gray-900">
+                      {transaction.name}
+                    </p>
+                    <p className="text-xs text-gray-500">{transaction.type}</p>
+                  </div>
                 </div>
-                <div className="ml-3">
-                  <p className="text-sm font-medium text-gray-900">
-                    Nova Venda
+                <div className="text-right">
+                  <p className="text-sm font-medium text-green-600">
+                    + R$ {transaction.amount}
                   </p>
-                  <p className="text-xs text-gray-500">Há 2 horas</p>
+                  <p className="text-xs text-gray-500">{transaction.time}</p>
                 </div>
               </div>
-              <span className="text-sm font-medium text-green-600">
-                + R$ 450,00
-              </span>
-            </div>
+            ))}
           </div>
         </motion.div>
 
@@ -72,19 +144,92 @@ export const DashboardContent = () => {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.2 }}
-          className="rounded-lg bg-white p-6 shadow-sm"
+          transition={{ delay: 0.4 }}
+          className="rounded-xl bg-white p-6 shadow-lg transition-shadow hover:shadow-xl"
         >
-          <h3 className="text-lg font-semibold text-gray-800">Meta Mensal</h3>
-          <div className="mt-4">
-            <div className="flex items-center">
-              <span className="text-2xl font-bold text-gray-900">78%</span>
-              <span className="ml-2 text-sm text-gray-500">completado</span>
+          <h3 className="mb-4 text-lg font-semibold text-gray-800">
+            Metas Mensais
+          </h3>
+          <div className="space-y-4">
+            <div>
+              <div className="mb-1 flex justify-between">
+                <span className="text-sm font-medium text-gray-700">
+                  Vendas
+                </span>
+                <span className="text-sm font-medium text-gray-700">78%</span>
+              </div>
+              <div className="h-2 w-full rounded-full bg-gray-200">
+                <div
+                  className="h-2 rounded-full bg-blue-600"
+                  style={{ width: '78%' }}
+                ></div>
+              </div>
             </div>
-            <div className="mt-3 h-2 w-full rounded-full bg-gray-200">
-              <div className="h-2 w-[78%] rounded-full bg-blue-600"></div>
+            <div>
+              <div className="mb-1 flex justify-between">
+                <span className="text-sm font-medium text-gray-700">
+                  Clientes
+                </span>
+                <span className="text-sm font-medium text-gray-700">65%</span>
+              </div>
+              <div className="h-2 w-full rounded-full bg-gray-200">
+                <div
+                  className="h-2 rounded-full bg-green-600"
+                  style={{ width: '65%' }}
+                ></div>
+              </div>
+            </div>
+            <div>
+              <div className="mb-1 flex justify-between">
+                <span className="text-sm font-medium text-gray-700">
+                  Receita
+                </span>
+                <span className="text-sm font-medium text-gray-700">82%</span>
+              </div>
+              <div className="h-2 w-full rounded-full bg-gray-200">
+                <div
+                  className="h-2 rounded-full bg-purple-600"
+                  style={{ width: '82%' }}
+                ></div>
+              </div>
             </div>
           </div>
+        </motion.div>
+
+        {/* Seção de Estatísticas */}
+        <div className="lg:col-span-3">
+          <Statistics />
+        </div>
+
+        {/* Banner de Segurança */}
+        <div className="lg:col-span-3">
+          <SecurityBanner />
+        </div>
+
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.5 }}
+          className="mt-8 text-center lg:col-span-3"
+        >
+          <Link href="/pagamentos">
+            <button className="focus:ring-opacity-50 inline-flex items-center rounded-lg bg-blue-500 px-6 py-3 text-white transition-colors hover:bg-blue-600 focus:ring-2 focus:ring-blue-500 focus:outline-none sm:hidden">
+              <svg
+                className="mr-2 h-5 w-5"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M12 6v6m0 0v6m0-6h6m-6 0H6"
+                />
+              </svg>
+              Ir para pagamentos
+            </button>
+          </Link>
         </motion.div>
       </div>
     </main>
