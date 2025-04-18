@@ -12,7 +12,7 @@ export const ProfileContent = () => {
         className="grid grid-cols-1 gap-6 md:grid-cols-3"
       >
         {/* Perfil do Usuário */}
-        <div className="rounded-xl bg-white p-6 shadow-lg md:col-span-2">
+        <div className="rounded-xl bg-white p-6 shadow-lg md:col-span-3">
           <div className="flex items-center space-x-4">
             <div className="flex h-20 w-20 items-center justify-center rounded-full bg-gradient-to-r from-blue-500 to-purple-600 text-2xl font-bold text-white">
               JD
@@ -28,7 +28,7 @@ export const ProfileContent = () => {
         </div>
 
         {/* Alteração de dados pessoais */}
-        <div className="rounded-xl bg-white p-6 shadow-lg">
+        <div className="rounded-xl bg-white p-6 shadow-lg md:col-span-3">
           <h3 className="mb-4 text-lg font-semibold text-gray-700">
             Alteração de dados pessoais
           </h3>
@@ -76,7 +76,7 @@ export const ProfileContent = () => {
         </div>
 
         {/* Estatísticas do Usuário */}
-        <div className="rounded-xl bg-white p-6 shadow-lg">
+        <div className="rounded-xl bg-white p-6 shadow-lg md:col-span-1">
           <h3 className="mb-4 text-lg font-semibold text-gray-700">
             Estatísticas
           </h3>
