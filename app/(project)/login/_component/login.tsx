@@ -6,8 +6,8 @@ import Link from 'next/link';
 
 export default function Login() {
   return (
-    <div className="flex min-h-screen bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50">
-      <div className="flex w-1/2 flex-col items-center justify-center p-8">
+    <div className="flex min-h-screen flex-col bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 md:flex-row">
+      <div className="flex w-full flex-col items-center justify-center p-8 md:w-1/2">
         <motion.div
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -71,7 +71,7 @@ export default function Login() {
         </motion.div>
       </div>
 
-      <div className="flex w-1/2 flex-col items-center justify-center bg-gradient-to-br from-blue-600 to-purple-600 p-8 text-white">
+      <div className="hidden w-1/2 flex-col items-center justify-center bg-gradient-to-br from-blue-600 to-purple-600 p-8 text-white md:flex">
         <motion.div
           initial={{ opacity: 0, x: 20 }}
           animate={{ opacity: 1, x: 0 }}
