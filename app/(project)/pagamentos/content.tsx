@@ -2,7 +2,6 @@
 
 import useMercadoPago from '@/hooks/useMercadoPago';
 import { useStripe } from '@/hooks/useStripe';
-import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { Statistics } from '@/components/statistics';
 import { SecurityBanner } from '@/components/security-banner';
@@ -213,32 +212,6 @@ export default function PaymentContent() {
 
       {/* Banner de Segurança */}
       <SecurityBanner />
-
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 0.6 }}
-        className="mt-8 text-center"
-      >
-        <Link href="/dashboard">
-          <button className="focus:ring-opacity-50 inline-flex items-center rounded-lg bg-blue-500 px-6 py-3 text-white transition-colors hover:bg-blue-600 focus:ring-2 focus:ring-blue-500 focus:outline-none sm:hidden">
-            <svg
-              className="mr-2 h-5 w-5"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M15 19l-7-7 7-7"
-              />
-            </svg>
-            Voltar ao Dashboard
-          </button>
-        </Link>
-      </motion.div>
     </div>
   );
 }
