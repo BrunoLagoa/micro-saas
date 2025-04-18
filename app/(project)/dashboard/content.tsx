@@ -13,7 +13,7 @@ export const DashboardContent = () => {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="rounded-xl bg-white p-6 shadow-lg transition-shadow hover:shadow-xl"
+          className="rounded-xl bg-white p-6 shadow-lg transition-shadow hover:shadow-xl sm:col-span-3 lg:col-auto"
         >
           <div className="flex items-center justify-between">
             <h3 className="text-lg font-semibold text-gray-800">
@@ -37,7 +37,7 @@ export const DashboardContent = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.1 }}
-          className="rounded-xl bg-white p-6 shadow-lg transition-shadow hover:shadow-xl"
+          className="rounded-xl bg-white p-6 shadow-lg transition-shadow hover:shadow-xl sm:col-span-3 lg:col-auto"
         >
           <div className="flex items-center justify-between">
             <h3 className="text-lg font-semibold text-gray-800">
@@ -59,7 +59,7 @@ export const DashboardContent = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2 }}
-          className="rounded-xl bg-white p-6 shadow-lg transition-shadow hover:shadow-xl"
+          className="rounded-xl bg-white p-6 shadow-lg transition-shadow hover:shadow-xl sm:col-span-3 lg:col-auto"
         >
           <div className="flex items-center justify-between">
             <h3 className="text-lg font-semibold text-gray-800">
@@ -81,7 +81,7 @@ export const DashboardContent = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.3 }}
-          className="rounded-xl bg-white p-6 shadow-lg transition-shadow hover:shadow-xl md:col-span-2"
+          className="rounded-xl bg-white p-6 shadow-lg transition-shadow hover:shadow-xl sm:col-span-3 lg:col-auto"
         >
           <h3 className="mb-4 text-lg font-semibold text-gray-800">
             Transações Recentes
@@ -145,7 +145,7 @@ export const DashboardContent = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.4 }}
-          className="rounded-xl bg-white p-6 shadow-lg transition-shadow hover:shadow-xl"
+          className="rounded-xl bg-white p-6 shadow-lg transition-shadow hover:shadow-xl sm:col-span-3 lg:col-auto"
         >
           <h3 className="mb-4 text-lg font-semibold text-gray-800">
             Metas Mensais
@@ -195,43 +195,43 @@ export const DashboardContent = () => {
             </div>
           </div>
         </motion.div>
-
-        {/* Seção de Estatísticas */}
-        <div className="lg:col-span-3">
-          <Statistics />
-        </div>
-
-        {/* Banner de Segurança */}
-        <div className="lg:col-span-3">
-          <SecurityBanner />
-        </div>
-
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.5 }}
-          className="mt-8 text-center lg:col-span-3"
-        >
-          <Link href="/pagamentos">
-            <button className="focus:ring-opacity-50 inline-flex items-center rounded-lg bg-blue-500 px-6 py-3 text-white transition-colors hover:bg-blue-600 focus:ring-2 focus:ring-blue-500 focus:outline-none sm:hidden">
-              <svg
-                className="mr-2 h-5 w-5"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M12 6v6m0 0v6m0-6h6m-6 0H6"
-                />
-              </svg>
-              Ir para pagamentos
-            </button>
-          </Link>
-        </motion.div>
       </div>
+
+      {/* Seção de Estatísticas */}
+      <div className="lg:col-span-3">
+        <Statistics />
+      </div>
+
+      {/* Banner de Segurança */}
+      <div className="lg:col-span-3">
+        <SecurityBanner />
+      </div>
+
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 0.5 }}
+        className="mt-8 text-center lg:col-span-3"
+      >
+        <Link href="/pagamentos">
+          <button className="focus:ring-opacity-50 inline-flex items-center rounded-lg bg-blue-500 px-6 py-3 text-white transition-colors hover:bg-blue-600 focus:ring-2 focus:ring-blue-500 focus:outline-none sm:hidden">
+            <svg
+              className="mr-2 h-5 w-5"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M12 6v6m0 0v6m0-6h6m-6 0H6"
+              />
+            </svg>
+            Ir para pagamentos
+          </button>
+        </Link>
+      </motion.div>
     </main>
   );
 };

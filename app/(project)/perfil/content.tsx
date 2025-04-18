@@ -27,6 +27,54 @@ export const ProfileContent = () => {
           </div>
         </div>
 
+        {/* Alteração de dados pessoais */}
+        <div className="rounded-xl bg-white p-6 shadow-lg">
+          <h3 className="mb-4 text-lg font-semibold text-gray-700">
+            Alteração de dados pessoais
+          </h3>
+          <div className="grid gap-6 md:grid-cols-2">
+            <div>
+              <label className="block text-sm font-medium text-gray-700">
+                Nome
+              </label>
+              <input
+                type="text"
+                className="mt-1 block w-full rounded-md border-gray-300 px-3 py-2 text-base focus:border-blue-500 focus:ring-blue-500 focus:outline-none"
+                placeholder="João da Silva"
+              />
+            </div>
+            <div>
+              <label className="block text-sm font-medium text-gray-700">
+                E-mail
+              </label>
+              <input
+                type="email"
+                className="mt-1 block w-full rounded-md border-gray-300 px-3 py-2 text-base focus:border-blue-500 focus:ring-blue-500 focus:outline-none"
+                placeholder="EMAIL"
+              />
+            </div>
+            <div>
+              <label className="block text-sm font-medium text-gray-700">
+                Data de Nascimento
+              </label>
+              <input
+                type="date"
+                className="mt-1 block w-full rounded-md border-gray-300 px-3 py-2 text-base focus:border-blue-500 focus:ring-blue-500 focus:outline-none"
+              />
+            </div>
+            <div>
+              <label className="block text-sm font-medium text-gray-700">
+                Telefone
+              </label>
+              <input
+                type="tel"
+                className="mt-1 block w-full rounded-md border-gray-300 px-3 py-2 text-base focus:border-blue-500 focus:ring-blue-500 focus:outline-none"
+                placeholder="(11) 99999-9999"
+              />
+            </div>
+          </div>
+        </div>
+
         {/* Estatísticas do Usuário */}
         <div className="rounded-xl bg-white p-6 shadow-lg">
           <h3 className="mb-4 text-lg font-semibold text-gray-700">
@@ -50,6 +98,12 @@ export const ProfileContent = () => {
             Preferências
           </h3>
           <div className="space-y-4">
+            <div className="flex items-center justify-between">
+              <span className="text-gray-600">Autenticação em 2 Fatores</span>
+              <div className="relative h-6 w-12 cursor-pointer rounded-full bg-green-500">
+                <div className="absolute top-1 right-1 h-4 w-4 rounded-full bg-white"></div>
+              </div>
+            </div>
             <div className="flex items-center justify-between">
               <span className="text-gray-600">Notificações por Email</span>
               <div className="relative h-6 w-12 cursor-pointer rounded-full bg-blue-500">
@@ -163,24 +217,6 @@ export const ProfileContent = () => {
                 <p className="text-xs text-gray-500">3 dias atrás</p>
               </div>
             </div>
-          </div>
-        </div>
-
-        {/* Segurança e Privacidade */}
-        <div className="rounded-xl bg-white p-6 shadow-lg">
-          <h3 className="mb-4 text-lg font-semibold text-gray-700">
-            Segurança
-          </h3>
-          <div className="space-y-4 text-[12px]">
-            <div className="flex items-center justify-between">
-              <span className="text-gray-600">Autenticação em 2 Fatores</span>
-              <div className="relative h-6 w-12 cursor-pointer rounded-full bg-green-500">
-                <div className="absolute top-1 right-1 h-4 w-4 rounded-full bg-white"></div>
-              </div>
-            </div>
-            <button className="mt-2 w-full rounded-lg border border-gray-300 px-4 py-2 text-sm text-gray-700 hover:bg-gray-50">
-              Alterar Senha
-            </button>
           </div>
         </div>
 
