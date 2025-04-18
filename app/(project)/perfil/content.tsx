@@ -1,8 +1,16 @@
 'use client';
 
+import { getFirstLettersFromName } from '@/utils/get-first-letters-name';
 import { motion } from 'framer-motion';
 
-export const ProfileContent = () => {
+type ProfileContentProps = {
+  user: {
+    name: string;
+    email: string;
+  };
+};
+
+export const ProfileContent = ({ user }: ProfileContentProps) => {
   return (
     <div className="mx-auto max-w-4xl p-6">
       <motion.div
@@ -15,13 +23,11 @@ export const ProfileContent = () => {
         <div className="rounded-xl bg-white p-6 shadow-lg md:col-span-3">
           <div className="flex items-center space-x-4">
             <div className="flex h-20 w-20 items-center justify-center rounded-full bg-gradient-to-r from-blue-500 to-purple-600 text-2xl font-bold text-white">
-              JD
+              {getFirstLettersFromName(user.name)}
             </div>
             <div>
-              <h2 className="text-2xl font-bold text-gray-800">
-                João da Silva
-              </h2>
-              <p className="text-gray-600">joao@email.com</p>
+              <h2 className="text-2xl font-bold text-gray-800">{user.name}</h2>
+              <p className="text-gray-600">{user.email}</p>
               <p className="text-sm text-gray-500">Membro desde Jan 2024</p>
             </div>
           </div>
