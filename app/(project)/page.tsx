@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { Footer } from '@/components/footer/footer';
+import { Footer } from '@/components/footer';
 
 const features = [
   {
@@ -134,7 +134,7 @@ export default function Home() {
           <div className="mt-10 flex flex-col gap-4 sm:flex-row">
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
               <Link href="/login">
-                <button className="focus:ring-opacity-50 w-full rounded-xl bg-gradient-to-r from-blue-600 to-purple-600 px-8 py-4 font-medium text-white shadow-lg transition-all hover:shadow-xl focus:ring-2 focus:ring-purple-500 focus:outline-none sm:w-auto">
+                <button className="focus:ring-opacity-50 w-full cursor-pointer rounded-xl bg-gradient-to-r from-blue-600 to-purple-600 px-8 py-4 font-medium text-white shadow-lg transition-all hover:shadow-xl focus:ring-2 focus:ring-purple-500 focus:outline-none sm:w-auto">
                   Começar Agora
                 </button>
               </Link>
@@ -227,7 +227,7 @@ export default function Home() {
                     ))}
                   </ul>
                   <button
-                    className={`w-full rounded-xl px-6 py-3 font-medium transition-all ${plan.highlighted ? 'bg-white text-blue-600 hover:bg-gray-100' : 'bg-gradient-to-r from-blue-600 to-purple-600 text-white hover:shadow-lg'}`}
+                    className={`w-full cursor-pointer rounded-xl px-6 py-3 font-medium transition-all ${plan.highlighted ? 'bg-white text-blue-600 hover:bg-gray-100' : 'bg-gradient-to-r from-blue-600 to-purple-600 text-white hover:shadow-lg'}`}
                   >
                     Começar agora
                   </button>

@@ -1,6 +1,6 @@
 import { auth } from '@/lib/auth';
 import { redirect } from 'next/navigation';
-import Login from './_component/login';
+import Login from './login';
 
 export default async function LoginPage() {
   const session = await auth();
